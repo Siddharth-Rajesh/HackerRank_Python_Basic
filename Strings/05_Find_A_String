@@ -1,0 +1,11 @@
+def count_substring(string, substring):
+    count = 0
+    substring_length = len(substring)
+    
+    # Iterate through each possible starting index
+    for i in range(len(string) - substring_length + 1):
+        # Check if the substring matches the portion of the string
+        if string[i:i + substring_length] == substring:
+            count += 1
+    
+    return count
