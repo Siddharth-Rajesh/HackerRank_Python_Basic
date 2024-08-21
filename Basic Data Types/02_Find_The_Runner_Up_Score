@@ -1,0 +1,29 @@
+def find_runner_up(scores):
+    # Convert scores to a set to remove duplicates, then back to a list
+    unique_scores = list(set(scores))
+    
+    # Sort the list in descending order
+    unique_scores.sort(reverse=True)
+    
+    # Check if there are at least two unique scores
+    if len(unique_scores) > 1:
+        # Return the second highest score (runner-up)
+        return unique_scores[1]
+    else:
+        # Handle the case where there is no runner-up
+        raise ValueError("There is no runner-up score.")
+
+# Input handling
+if __name__ == "__main__":
+    # Read number of scores
+    n = int(input().strip())
+    
+    # Read the scores, split by space, and convert to integers
+    scores = list(map(int, input().strip().split()))
+    
+    # Find and print the runner-up score
+    try:
+        runner_up_score = find_runner_up(scores)
+        print(runner_up_score)
+    except ValueError as e:
+        print(e)
