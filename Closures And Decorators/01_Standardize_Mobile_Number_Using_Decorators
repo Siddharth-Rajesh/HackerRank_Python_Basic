@@ -1,0 +1,18 @@
+def wrapper(func):
+    def fun(l):
+        out = []
+        for telnum in l:
+            barenum = telnum[-10:]
+            telnum = '+91 ' + barenum[:5] + ' ' + barenum[5:]
+            out.append(telnum)
+        func(out)
+    return fun
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
+
+
